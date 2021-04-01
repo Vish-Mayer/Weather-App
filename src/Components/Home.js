@@ -27,6 +27,23 @@ function Home() {
         }}
       />
       <button onClick={ () => getWeather()} id="search">Search</button>
+
+      <div className="weather">
+     {data && (
+       <>
+         <h1> {data.getCityByName.name} </h1>
+         <h1>
+           {" "}
+           Temperature: {data.getCityByName.weather.temperature.actual}
+         </h1>
+         <h1>
+           Description: {data.getCityByName.weather.summary.description}
+         </h1>
+         <h1>Wind Speed: {data.getCityByName.weather.wind.speed}</h1>
+
+       </>
+     )}
+   </div>
     </div>
   );
 }

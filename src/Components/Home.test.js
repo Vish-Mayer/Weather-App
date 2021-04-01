@@ -6,6 +6,14 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
+const simulateChangeonInput = (wrapper, inputSelector, newValue) => {
+  const input = wrapper.find(inputSelector)
+  input.simulate('change', {
+    target: {value: newValue}
+  })
+  return wrapper.find(inputSelector)
+}
+
 describe('Home', () => {
 
   let wrapper;
@@ -26,4 +34,8 @@ describe('Home', () => {
   expect(wrapper.find("#search").text()).toBe("Search")
   })
 
+  it('saves the input state', () => {
+  const updateInput = simulateChangeonInput(wrapper, '#text-input', 'London')
+  expect(updateInput.name()).toBe("input")
+  })
 });
