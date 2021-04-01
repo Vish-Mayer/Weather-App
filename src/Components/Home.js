@@ -1,4 +1,7 @@
 
+import { useLazyQuery } from '@apollo/client'
+import { GET_WEATHER_QUERY } from '../Graphql/Queries'
+
 function Home() {
   return (
     <div className="home">
